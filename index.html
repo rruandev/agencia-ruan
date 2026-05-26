@@ -12,7 +12,7 @@
     --accent: #c8f04e; --accent2: #4ef0c8;
     --text: #f0ede8; --muted: #6b6b7a; --border: rgba(255,255,255,0.07);
   }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; cursor: none; }
 
   /* CURSOR */
@@ -310,28 +310,95 @@
   .guarantee-items li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
 
   @media (max-width: 768px) {
+    /* NAV */
     nav { padding: 1.2rem 1.5rem; }
+    nav.slim { padding: 1rem 1.5rem; }
     .nav-links, .nav-cta { display: none; }
     .hamburger { display: flex; }
-    .hero { padding: 0 1.5rem 4rem; }
-    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 2rem; }
-    .hero-actions { align-items: flex-start; }
-    .section, .how-section, .cases-section, .testimonials-section, .faq-section { padding: 5rem 1.5rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .plans-grid, .cases-grid, .testimonials-grid { grid-template-columns: 1fr; }
-    .stats-section { grid-template-columns: 1fr 1fr; }
-    .stat-item { padding: 2.5rem 1.5rem; }
+
+    /* URGENCY BAR */
+    .urgency-bar { font-size: .7rem; padding: .5rem 1rem; line-height: 1.4; }
+
+    /* CURSOR — esconder no mobile */
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+    a, button, .faq-q, .service-card, .plan-card, .case-card, .testimonial-card,
+    .nav-cta, .btn-wa, .btn-ghost, .btn-cta-wa, .plan-btn, .wa-float { cursor: pointer; }
+
+    /* HERO */
+    .hero { padding: 7rem 1.5rem 3.5rem; min-height: 100svh; justify-content: center; }
+    .hero-tag { font-size: .6rem; letter-spacing: .08em; }
+    .hero-title { font-size: clamp(1.8rem, 7.5vw, 2.8rem); }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; margin-top: 1.5rem; }
+    .hero-actions { align-items: stretch; width: 100%; }
     .hero-mockup { display: none; }
-    .partners-bar { padding: 2rem 1.5rem; }
+    .scroll-hint { display: none; }
+
+    /* BUTTONS — full width e melhor touch target */
+    .btn-wa, .btn-ghost {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 1.1rem 1.5rem;
+      font-size: .95rem;
+    }
+    .btn-ghost { border-color: rgba(255,255,255,0.2); color: var(--text); }
+
+    /* MARQUEE */
+    .marquee-section { padding: 1rem 0; }
+
+    /* PARTNERS */
+    .partners-bar { padding: 1.5rem 1rem; }
+
+    /* WORKS TICKER */
+    .work-card { width: 220px; height: 148px; }
+
+    /* STATS */
+    .stats-section { grid-template-columns: 1fr 1fr; }
+    .stat-item { padding: 2rem 1rem; }
+    .stat-num { font-size: 2.6rem; }
+
+    /* SECTIONS */
+    .section, .how-section, .cases-section, .testimonials-section, .faq-section { padding: 4rem 1.5rem; }
+    .section-title { font-size: clamp(1.7rem, 6vw, 2.2rem); margin-bottom: 2rem; }
+
+    /* SERVICES */
+    .services-grid { grid-template-columns: 1fr; }
+
+    /* STEPS — 1 coluna + sem setas */
+    .steps { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .step::after { display: none; }
+
+    /* CASES */
+    .cases-grid { grid-template-columns: 1fr; }
+
+    /* TESTIMONIALS */
+    .testimonials-grid { grid-template-columns: 1fr; }
+
+    /* PLANS */
+    .plans-grid { grid-template-columns: 1fr; }
+
+    /* GUARANTEE */
+    .guarantee-section { padding: 4rem 1.5rem; }
     .guarantee-inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
     .guarantee-badge { margin: 0 auto; }
     .guarantee-items { text-align: left; }
+
+    /* CTA */
+    .cta-section { padding: 4rem 1.5rem; }
+    .cta-btns { flex-direction: column; align-items: stretch; }
+    .btn-cta-wa { justify-content: center; padding: 1.1rem 1.5rem; font-size: .95rem; }
+    .cta-form { flex-direction: column; border: none; gap: .5rem; }
+    .cta-input { border: 1px solid var(--border); padding: 1rem 1.2rem; }
+    .cta-submit { padding: 1rem; font-size: .85rem; }
+
+    /* FOOTER */
     footer { flex-direction: column; gap: 2rem; text-align: center; padding: 2rem 1.5rem; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
-    .cta-section { padding: 5rem 1.5rem; }
-    .cta-btns { flex-direction: column; align-items: center; }
-    nav.slim { padding: 1rem 1.5rem; }
+
+    /* WA FLOAT */
+    .wa-float { width: 50px; height: 50px; bottom: 1.5rem; right: 1.5rem; }
+    .wa-float svg { width: 24px; height: 24px; }
   }
 </style>
 </head>
